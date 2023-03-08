@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các loại hàm</title>
+</head>
+
+<body>
+    <script>
+        // 2. Expression function
+        let add = function (number1, number2) {
+            return number1 + number2;
+        }
+        console.log("Tổng 2 số:", add(5, 8));
+        // 3. IIFE function - thực thi khi khai báo - chạy duy nhất 1 lần
+        (function (firstName, lastName) {
+            console.log("Hệ thống đào tạo CNTT chất lượng Nhật Bản - " + firstName + " " + lastName);
+        })("Rikkei", "Academy");
+        // 4. Arrow function
+        let multipy = (number1, number2) => {
+            //body of arrow function
+            return number1 * number2;
+        }
+        console.log("Tích 2 số là: ", multipy(2, 4));
+        // 5. function có số lượng tham số chưa xác định
+        // 5.1. Sử dụng arguments của js
+        function sum() {
+            // Tính tổng các số
+            let sum = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        console.log("Tổng 2 số là: ", sum(3, 6));
+        console.log("Tổng 3 số là: ", sum(3, 6, 5));
+        console.log("Tổng 4 số là: ", sum(1, 2, 3, 4));
+        // 5.2. Sử dụng rest parameter của es6
+        function sumNumber(...params) {
+            let sum = 0;
+            for (let i = 0; i < params.length; i++) {
+                sum += params[i];
+            }
+            return sum;
+        }
+        console.log("Tổng 3 số là: ", sumNumber(3, 4, 5));
+        // 6. Hàm ẩn danh
+        // setInterval: dừng trong 1 khoảng thời gian
+        let time = 60;
+        // setInterval(function () {
+        //     console.log(time);
+        //     time--;
+        // }, 1000);
+        // 7. callback function - xử lý đồng bộ trong javascript
+        // Đồng bộ - lần lượt (con trai - gọi điện thoại) và bất đồng bộ - đồng thời (con gái - gửi mail)
+        // Javascript - ngôn ngữ lập trình bất đồng bộ
+        //--> muốn thực hiện công việc đồng bộ????? --> callback function
+        //callback function
+        function cv2(num2) {
+            console.log("Thực hiện công việc " + num2);
+        }
+        function cv1(num1, cv2) {
+            console.log("Thực hiện công việc " + num1);
+            // sau khi thực hiện công việc 1 xong, gọi cv2 thực hiện
+            cv2(2);
+        }
+        //gọi function cv1
+        cv1(1, cv2);
+
+    </script>
+</body>
+
+</html>

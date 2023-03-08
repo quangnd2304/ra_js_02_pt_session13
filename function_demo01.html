@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Demo 01</title>
+</head>
+
+<body>
+    <script>
+        // Xây dựng 1 hàm in ra câu xin chào các bạn lớp JS-PT-02
+        function hello() {
+            // body of function - tập hợp khối lệnh
+            console.log("Xin chào các bạn lớp JS-PT-02");
+        }
+        // Gọi hàm
+        hello();
+        // Xây dựng hàm chúc mừng ngày 8/3 với giá trị 8/3 là tham số truyền vào
+        function happyWoman(day) {
+            // day = "8/3"
+            console.log("Chúc mừng ngày ", day);
+        }
+        happyWoman("8/3");
+        // Xây dựng hàm tính tổng 3 số với các số là tham số truyền vào, và trả ra tổng 3 số
+        function add(num1, num2, num3) {
+            //num1,num2,num3 là biến cục bộ, chỉ được sử dụng trong hàm
+            let sum = num1 + num2 + num3;
+            // trả ra: return, hàm kết thúc
+            return sum;
+            console.log("Thực hiện câu lệnh sau return");
+        }
+        // num1, num2, num3: tham số - parameter
+        //4,5,6 truyền vào khi gọi hàm: đối số - argument
+        // let tong = add(4, 5, 6);
+        // console.log("Tổng 3 số là: ", tong);
+        console.log("Tổng 3 số là: ", add(4, 5, 6));
+        console.log("Giá trị trả ra của hàm: ", happyWoman("8/3"));
+        console.log("tổng 2 số là: ", add(4, 5));
+        // Biến toàn cuc - sử dụng chung cho các hàm ở trong lớp function_demo01
+        let number = 10;
+        function printNumber(num1) {
+            num1++;
+            console.log("Giá trị sau khi tăng: ", num1);//11
+        }
+        // Truyền tham trị - truyền đối số có các kiểu dữ liệu là primitive - truyền giá trị
+        printNumber(number);
+        console.log("Giá trị của number sau khi gọi hàm là: ", number);//10
+        let arrNumber = [3, 6, 9];
+        function printArray(arr) {
+            arr[0] = 20;
+            console.log("Mảng sau khi thay đổi giá trị phần tử có chỉ số 0 là: ", arr);
+            //[20,6,9]
+        }
+        // Truyền tham chiếu - truyền đối số có các kiểu dữ liệu là non_primitive - truyền địa chỉ ô nhớ của biến
+        printArray(arrNumber);
+        console.log("Mảng sau khi gọi hàm là: ", arrNumber);
+        //[20,6,9]
+    </script>
+</body>
+
+</html>

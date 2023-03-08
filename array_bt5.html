@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 5</title>
+</head>
+
+<body>
+    <script>
+        // Khai báo mảng 1 chiều
+        let arrInt = [];
+        //Nhập vào 2 số nguyên a,b
+        let a = parseInt(prompt("Nhập vào số nguyên a"));
+        let b = parseInt(prompt("Nhập vào số nguyên b"));
+        // Nhập 5 phần tử có giá trị trong khoảng a và b
+        for (let i = 0; i < 5; i++) {
+            let number;
+            do {
+                number = parseInt(prompt("Nhập vào phần tử " + (i + 1)));
+                if (number >= a && number <= b) {
+                    arrInt.push(number);
+                    break;
+                }
+            } while (true);
+        }
+        console.log("Mảng vừa nhập là", arrInt);
+    </script>
+</body>
+
+</html>

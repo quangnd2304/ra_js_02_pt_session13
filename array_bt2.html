@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+
+<body>
+    <script>
+        //1. Khai báo và nhập giá trị các phần tử từ bàn phím
+        // Khai báo
+        let arrInt = [];
+        //Nhập số dòng và số cột của mảng 2 chiều
+        let row = parseInt(prompt("Nhập vào số dòng của mảng: "));
+        let col = parseInt(prompt("Nhập vào số cột của mảng"));
+        // Nhập giá trị các phần tử của mảng
+        for (let i = 0; i < row; i++) {
+            // Khai báo 1 phần tử của mảng 2 chiều - dòng --> mảng 1 chiều
+            let arrRow = [];
+            for (let j = 0; j < col; j++) {
+                arrRow.push(parseInt(prompt("Nhập giá trị phần tử mảng")));
+            }
+            // thêm phần tử dòng vào mảng 2 chiều
+            arrInt.push(arrRow);
+        }
+        //2. In giá trị các phần tử của mảng theo ma trận
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < col; j++) {
+                document.write(arrInt[i][j] + " ");
+            }
+            document.write("<br />");
+        }
+        // 3. In giá trị các phần tử nằm trên đường biên
+        document.write("<br/>Các phần tử nằm trên đường biên:<br/>");
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < col; j++) {
+                if (i == 0 || j == 0 || i == row - 1 || j == col - 1) {
+                    document.write(arrInt[i][j]);
+                } else {
+                    document.write(" ");
+                }
+            }
+            document.write("<br />");
+        }
+        //4. In giá trị các phần tử nằm trên đường chéo chính và phụ
+        //Để có chéo chính và chéo phụ thì ma trận phải vuông --> row==col
+        if (row == col) {
+            console.log("Các phần tử nằm trên đường chéo chính: ");
+            //i==j
+            for (let i = 0; i < row; i++) {
+                for (let j = 0; j < col; j++) {
+                    if (i == j) {
+                        console.log(arrInt[i][j]);
+                    }
+                }
+            }
+            console.log("Các phần tử năm trên đường chéo phụ: ");
+            // i+j = row-1 (col-1)
+            for (let i = 0; i < row; i++) {
+                for (let j = 0; j < col; j++) {
+                    if (i + j == row - 1) {
+                        console.log(arrInt[i][j]);
+                    }
+                }
+            }
+        } else {
+            console.log("Ma trận không có đường chéo chính và phụ");
+        }
+        // 5. Sắp xếp các phần tử tăng dần theo dòng - không sử dụng hàm sort
+        for (let i = 0; i < row; i++) {
+            // //Sắp xếp dòng i tăng dần --> mảng 1 chiều
+            // for (let j = 0; j < col - 1; j++) {
+            //     for (let k = j + 1; k < col; k++) {
+            //         if (arrInt[i][j] > arrInt[i][k]) {
+            //             let temp = arrInt[i][j];
+            //             arrInt[i][j] = arrInt[i][k];
+            //             arrInt[i][k] = temp;
+            //         }
+            //     }
+            // }
+            //Dùng hàm sort
+            arrInt[i].sort((a, b) => a - b);
+        }
+        // In ra mảng sau khi sắp xếp
+        console.log("Mảng sau khi sắp xếp: ", arrInt);
+    </script>
+</body>
+
+</html>
